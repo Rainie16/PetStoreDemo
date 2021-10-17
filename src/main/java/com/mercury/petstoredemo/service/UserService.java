@@ -40,7 +40,7 @@ public class UserService {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setRole(new Role(2));
             userDao.save(user);
-            return new Response(true);
+            return new Response(true, 200, "Register successfully!");
         } catch(Exception e) {
             return new Response(false, 400, e.getMessage());
         }

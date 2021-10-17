@@ -15,10 +15,10 @@ public class Response {
         this.message = "";
     }
 
-    public Response(boolean sucess, String message) {
+    public Response(boolean success, String message) {
         super();
         this.success = success;
-        this.code = sucess ? 200 : 400;
+        this.code = success ? 200 : 400;
         this.message = message;
     }
 

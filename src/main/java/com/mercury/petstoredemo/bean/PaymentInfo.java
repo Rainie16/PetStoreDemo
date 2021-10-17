@@ -1,5 +1,7 @@
 package com.mercury.petstoredemo.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -24,6 +26,7 @@ public class PaymentInfo {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     public PaymentInfo() {
