@@ -24,6 +24,9 @@ public class Pet {
     private String gender;
 
     @Column
+    private String breed;
+
+    @Column
     private String image;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
@@ -31,22 +34,17 @@ public class Pet {
     @JsonIgnore
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "breed_id")
-    @JsonIgnore
-    private Breed breed;
-
     public Pet() {
     }
 
-    public Pet(int id, String name, Date birthday, String gender, String image, User user, Breed breed) {
+    public Pet(int id, String name, Date birthday, String gender, String breed, String image, User user) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
         this.gender = gender;
+        this.breed = breed;
         this.image = image;
         this.user = user;
-        this.breed = breed;
     }
 
     public int getId() {
@@ -81,6 +79,14 @@ public class Pet {
         this.gender = gender;
     }
 
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
     public String getImage() {
         return image;
     }
@@ -97,14 +103,6 @@ public class Pet {
         this.user = user;
     }
 
-    public Breed getBreed() {
-        return breed;
-    }
-
-    public void setBreed(Breed breed) {
-        this.breed = breed;
-    }
-
     @Override
     public String toString() {
         return "Pet{" +
@@ -112,9 +110,11 @@ public class Pet {
                 ", name='" + name + '\'' +
                 ", birthday=" + birthday +
                 ", gender='" + gender + '\'' +
+                ", breed='" + breed + '\'' +
                 ", image='" + image + '\'' +
                 ", user=" + user +
-                ", breed=" + breed +
                 '}';
     }
 }
+
+
