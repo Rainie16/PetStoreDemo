@@ -33,6 +33,7 @@ public class Pet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "breed_id")
+    @JsonIgnore
     private Breed breed;
 
     public Pet() {

@@ -1,5 +1,6 @@
 package com.mercury.petstoredemo.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class PaymentInfo {
     private String cardNumber;
 
     @Column
+    @JsonFormat(pattern = "MM-yy")
     private Date expirationDate;
 
     @Column
