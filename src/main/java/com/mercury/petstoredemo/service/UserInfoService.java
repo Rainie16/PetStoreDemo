@@ -36,6 +36,8 @@ public class UserInfoService {
             User user = userDao.findByUsername(authentication.getName());
             userInfo.setUser(user);
             userInfoDao.save(userInfo);
+            user.setUserInfo(userInfo);
+            userDao.save(user);
             return new Response(true);
         } catch (Exception e) {
             e.printStackTrace();
